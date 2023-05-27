@@ -15,7 +15,12 @@ const PORT = 7777;
 
 mongoose.connect(process.env.DB_URL).then(() => console.log("connected to DB"));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://exclusive-shop-alpha.vercel.app",
+    credentials: true,
+  })
+);
 app.use(cookieparser());
 app.use(express.json());
 
