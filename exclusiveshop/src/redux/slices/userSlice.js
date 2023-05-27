@@ -52,6 +52,7 @@ export const registerUSer = createAsyncThunk('user/register', async (data, thunk
 export const addProdToCart = createAsyncThunk('user/addproduct2cart', async (data, thunkAPI) => {
   try {
     const res = await addProd2Cart(data)
+    thunkAPI.dispatch(saveMessage({ message: res.message, error: false }))
     return res.data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.name)
@@ -61,6 +62,7 @@ export const addProdToCart = createAsyncThunk('user/addproduct2cart', async (dat
 export const removeProdToCart = createAsyncThunk('user/removeproduct2cart', async (id, thunkAPI) => {
   try {
     const res = await removeProd2Cart(id)
+    thunkAPI.dispatch(saveMessage({ message: res.message, error: false }))
     return res.data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.name)
@@ -70,6 +72,7 @@ export const removeProdToCart = createAsyncThunk('user/removeproduct2cart', asyn
 export const addProdToWishlist = createAsyncThunk('user/addproduct2wishlist', async (id, thunkAPI) => {
   try {
     const res = await addProd2Wishlist(id)
+    thunkAPI.dispatch(saveMessage({ message: res.message, error: false }))
     return res.data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.name)
@@ -79,6 +82,7 @@ export const addProdToWishlist = createAsyncThunk('user/addproduct2wishlist', as
 export const removeProdToWishlist = createAsyncThunk('user/removeproduct2wishlist', async (id, thunkAPI) => {
   try {
     const res = await removeProd2Wishlist(id)
+    thunkAPI.dispatch(saveMessage({ message: res.message, error: false }))
     return res.data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.name)

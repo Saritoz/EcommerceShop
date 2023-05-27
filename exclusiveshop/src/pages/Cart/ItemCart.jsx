@@ -17,10 +17,17 @@ export default function ItemCart({ data, amountItem, setTotal, idItem, handleRem
   }, [])
 
   return (
-    <div className='group my-5 flex items-center gap-3 rounded px-2 py-5 text-center shadow'>
+    <div className='group my-5 flex h-[100px] items-center gap-3 rounded px-2 py-5 text-center shadow'>
       <div className='relative flex basis-1/4 items-center justify-center gap-x-3 overflow-hidden'>
-        <img src={`${data.imagesUrl[0]}`} alt='' className='inline-block w-[60px]' crossOrigin='anonymous' />
-        <span className='inline-block overflow-hidden overflow-ellipsis whitespace-nowrap'>{data.name}</span>
+        <img
+          src={`${data.imagesUrl[0]}`}
+          alt=''
+          className='inline-block max-h-[80%] max-w-[60px]'
+          crossOrigin='anonymous'
+        />
+        <span className='inline-block w-[calc(100%-60px)] overflow-hidden overflow-ellipsis whitespace-nowrap'>
+          {data.name}
+        </span>
       </div>
       <p className='basis-1/4'>${data.price * (1 - data.discount / 100)}</p>
       <div className='basis-1/4'>

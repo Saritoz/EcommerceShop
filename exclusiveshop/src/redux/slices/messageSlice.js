@@ -12,9 +12,12 @@ const messageSlice = createSlice({
     saveMessage: (state, action) => {
       state.message = action.payload.message
       state.error = action.payload?.error
+    },
+    clearMessage: (state) => {
+      state.message = ''
     }
   }
 })
 
-export const { saveMessage } = messageSlice.actions
+export const { saveMessage, clearMessage } = messageSlice.actions
 export default messageSlice.reducer

@@ -19,9 +19,12 @@ export default function Cart() {
 
   useEffect(() => {
     dispatch(getCartData())
-
-    return () => dispatch(clearCart())
   }, [user])
+
+  useEffect(() => {
+    return () => dispatch(clearCart())
+  }, [])
+
   return (
     <section>
       <Container>

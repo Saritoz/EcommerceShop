@@ -26,7 +26,11 @@ const userControllers = {
 
       res
         .status(200)
-        .json({ name: "ADD_WISHLIST_SUCCESS", data: updateWishLish });
+        .json({
+          name: "ADD_WISHLIST_SUCCESS",
+          data: updateWishLish,
+          message: "add wishlist success",
+        });
     } catch (error) {
       res.status(500).json(error);
     }
@@ -60,7 +64,13 @@ const userControllers = {
         ).select("cart");
       }
 
-      res.status(200).json({ name: "ADD_CART_SUCCESS", data: updateCart });
+      res
+        .status(200)
+        .json({
+          name: "ADD_CART_SUCCESS",
+          data: updateCart,
+          message: "add cart success",
+        });
     } catch (error) {
       res.status(500).json(error);
     }
@@ -78,7 +88,13 @@ const userControllers = {
         { new: true }
       ).select("cart");
 
-      res.status(200).json({ name: "DELETE_CART_SUCCESS", data: updateCart });
+      res
+        .status(200)
+        .json({
+          name: "DELETE_CART_SUCCESS",
+          data: updateCart,
+          message: "remove success",
+        });
     } catch (error) {
       res.status(500).json(error);
     }
@@ -98,7 +114,11 @@ const userControllers = {
 
       res
         .status(200)
-        .json({ name: "DELETE_WISHLIST_SUCCESS", data: updateCart });
+        .json({
+          name: "DELETE_WISHLIST_SUCCESS",
+          data: updateCart,
+          message: "remove success",
+        });
     } catch (error) {
       res.status(500).json(error);
     }
@@ -172,7 +192,13 @@ const userControllers = {
       }
 
       const newCart = await User.findOne({ _id: id }).select("cart");
-      res.status(200).json({ name: "UPDATE_CART_SUCCESS", data: newCart });
+      res
+        .status(200)
+        .json({
+          name: "UPDATE_CART_SUCCESS",
+          data: newCart,
+          message: "update success",
+        });
     } catch (error) {
       res.status(500).json(error);
     }

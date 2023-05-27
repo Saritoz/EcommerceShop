@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Authentication() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [switchAuth, setSwitchAuth] = useState(false)
+  const [switchAuth, setSwitchAuth] = useState(true)
   const hasLoginIn = useMountTransition(switchAuth, 500)
   const hasRegisterIn = useMountTransition(!switchAuth, 500)
   const {
@@ -111,7 +111,7 @@ export default function Authentication() {
                   <div>
                     <input
                       type='text'
-                      placeholder='Name'
+                      placeholder='username'
                       autoComplete='off'
                       className='mb-1 w-full border-b-[1px] border-neutral-300 p-2 pl-0'
                       {...register('signup_name', {

@@ -87,6 +87,9 @@ const productSlice = createSlice({
   reducers: {
     clearProdFound: (state) => {
       state.listProdFound = []
+    },
+    clearProductInfo: (state) => {
+      state.productInfo = null
     }
   },
   extraReducers: (builder) => {
