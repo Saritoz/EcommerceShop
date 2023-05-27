@@ -101,7 +101,7 @@ export default function Home() {
             </div>
           </div>
           <div ref={todayContainer} className='no-scrollbar my-4 flex w-full gap-5 overflow-x-auto scroll-smooth'>
-            {store?.saleproduct.map((product) => {
+            {store?.saleproduct?.map((product) => {
               const action = user?.wishList?.includes(product._id) ? 'canremove' : 'canwishlist'
               return (
                 <CardItem
@@ -143,7 +143,7 @@ export default function Home() {
           </div>
         </div>
         <div className='no-scrollbar my-4 flex w-full gap-5 overflow-x-auto scroll-smooth' ref={categoryContainer}>
-          {store?.categories.map((category) => (
+          {store?.categories?.map((category) => (
             <CardCategory key={category._id} data={category} browseByCategory={browseByCategory}>
               <FontAwesomeIcon icon={categoriesIcon[category.name]} className='text-5xl' />
             </CardCategory>
@@ -160,7 +160,7 @@ export default function Home() {
           </button>
         </div>
         <div className='my-4 flex w-full flex-wrap justify-center gap-5 sm:justify-start'>
-          {store?.bestseller.map((product) => {
+          {store?.bestseller?.map((product) => {
             const action = user?.wishList?.includes(product._id) ? 'canremove' : 'canwishlist'
             const type = product.discount ? 'saleoff' : isNewItem(product.createdAt) ? 'new' : ''
             return (
@@ -203,7 +203,7 @@ export default function Home() {
           className='no-scrollbar my-4 flex h-[620px] flex-col gap-5 overflow-x-auto scroll-smooth'
         >
           <div className='flex h-[620px] w-full gap-5'>
-            {store.products.slice(0, 10).map((product) => {
+            {store?.products?.slice(0, 10).map((product) => {
               const action = user?.wishList?.includes(product._id) ? 'canremove' : 'canwishlist'
               const type = product.discount ? 'saleoff' : isNewItem(product.createdAt) ? 'new' : ''
               return (
@@ -221,7 +221,7 @@ export default function Home() {
             })}
           </div>
           <div className='flex h-[620px] w-full gap-5'>
-            {store.products.slice(10).map((product) => {
+            {store?.products?.slice(10).map((product) => {
               const action = user?.wishList?.includes(product._id) ? 'canremove' : 'canwishlist'
               const type = product.discount ? 'saleoff' : isNewItem(product.createdAt) ? 'new' : ''
               return (
