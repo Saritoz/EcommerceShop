@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const axiosInstance = () => {
   const newInstance = axios.create({
-    baseURL: process.env.URL_BE,
+    baseURL: 'https://exclusiveshop-be.vercel.app/v1/',
     timeout: 10000,
     withCredentials: true
   })
