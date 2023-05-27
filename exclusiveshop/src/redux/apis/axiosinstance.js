@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const axiosInstance = () => {
   const newInstance = axios.create({
-    baseURL: 'http://localhost:7777/v1/',
+    baseURL: process.env.URL_BE,
     timeout: 10000,
     withCredentials: true
   })
