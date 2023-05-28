@@ -17,7 +17,7 @@ mongoose.connect(process.env.DB_URL).then(() => console.log("connected to DB"));
 
 app.use(
   cors({
-    origin: "https://exclusive-shop-alpha.vercel.app",
+    origin: "https://exclusive-shop-jet.vercel.app/",
     credentials: true,
   })
 );
