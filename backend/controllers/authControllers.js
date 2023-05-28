@@ -93,18 +93,18 @@ const authControllers = {
         refreshTokenStore.push(refreshToken);
 
         // set refreshToken to cookie
-        res.cookie("refreshToken", refreshToken, {
-          httpOnly: true,
-          secure: false,
-          path: "/",
-        });
+        // res.cookie("refreshToken", refreshToken, {
+        //   httpOnly: true,
+        //   secure: false,
+        //   path: "/",
+        // });
 
         // return data expect password
         const { password, ...dataUser } = user._doc;
         res.status(200).json({
           name: "LOGIN_SUCCESS",
           message: "login success",
-          data: { ...dataUser, accessToken },
+          data: { ...dataUser, accessToken, refreshToken },
         });
       }
     } catch (error) {
@@ -127,7 +127,7 @@ const authControllers = {
   refreshAccessToken: async (req, res) => {
     try {
       // get refreshtoken
-      const refreshToken = req.cookies.refreshToken;
+      const { refreshToken } = req.body;
 
       // check if not have refreshtoken
       if (!refreshToken)

@@ -46,7 +46,7 @@ export const ProductList = () => {
       <Container>
         <BreadCrumb />
         {state?.search && <p className='mb-3 text-xl'>The result for '{state.search}' :</p>}
-        <div className='flex flex-wrap gap-5'>
+        <div className='flex flex-wrap justify-center gap-5 md:justify-start'>
           {listProdFound?.map((product) => {
             const action = user?.wishList?.includes(product._id) ? 'canremove' : 'canwishlist'
             const type = product.discount ? 'saleoff' : isNewItem(product.createdAt) ? 'new' : ''

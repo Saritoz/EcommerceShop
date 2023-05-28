@@ -61,7 +61,7 @@ export default function CardItem({
         <p>
           <span className='mr-4 text-red-500'>
             {type?.toLowerCase() === 'saleoff'
-              ? `$${Math.round(data.price * (1 - data.discount / 100))}`
+              ? `$${(data.price * (1 - data.discount / 100)).toFixed(2)}`
               : `$${data.price}`}
           </span>
           {type?.toLowerCase() === 'saleoff' && (

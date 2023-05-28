@@ -52,7 +52,11 @@ export default function Authentication() {
           <img src='/assets/imgs/loginimg.png' alt='' className='hidden min-w-[250px] basis-3/5 md:block' />
           <div className='mx-auto basis-[2/5]'>
             {switchAuth ? (
-              <div className={`flex w-[325px] flex-col gap-y-5 lg:w-[375px] ${hasRegisterIn && 'animate-fade-in'}`}>
+              <div
+                className={`flex w-[325px] flex-col gap-y-5 lg:w-[375px] ${
+                  hasRegisterIn && 'animate-fade-in'
+                } overflow-hidden`}
+              >
                 <h2 className='text-4xl font-semibold tracking-wider'>Log in to Exclusive</h2>
                 <p className='text-xl'>Enter your details below</p>
                 <form action='' onSubmit={handleSubmit(handleSubmitLogin)}>
@@ -104,7 +108,11 @@ export default function Authentication() {
                 </p>
               </div>
             ) : (
-              <div className={`flex w-[325px] flex-col gap-y-5 lg:w-[375px] ${hasLoginIn && 'animate-fade-in'}`}>
+              <div
+                className={`flex w-[325px] flex-col gap-y-5 lg:w-[375px] ${
+                  hasLoginIn && 'animate-fade-in'
+                } overflow-hidden`}
+              >
                 <h2 className='text-4xl font-semibold tracking-wider'>Create an account</h2>
                 <p className='text-xl'>Enter your details below</p>
                 <form action='' onSubmit={handleSubmit(handleSubmitRegister)}>

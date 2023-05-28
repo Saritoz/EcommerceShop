@@ -70,7 +70,7 @@ export default function Cart() {
               <tbody>
                 <tr>
                   <td>Subtotal:</td>
-                  <td>${total}</td>
+                  <td>${total.toFixed(2)}</td>
                 </tr>
                 <tr>
                   <td>Shipping:</td>
@@ -78,7 +78,7 @@ export default function Cart() {
                 </tr>
                 <tr>
                   <td>Total:</td>
-                  <td>${total}</td>
+                  <td>${total.toFixed(2)}</td>
                 </tr>
               </tbody>
             </table>

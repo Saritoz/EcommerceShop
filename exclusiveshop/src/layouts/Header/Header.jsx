@@ -60,7 +60,7 @@ export default function Header() {
       </section>
       <Container>
         <nav className='mt-6 flex h-[75px] items-center justify-between gap-x-5 bg-white'>
-          <h1 className='hidden basis-[1/8] text-2xl font-medium sm:block'>Exclusive</h1>
+          <h1 className='hidden basis-[1/8] text-2xl font-medium md:block'>Exclusive</h1>
           <div className='flex w-full basis-[3/8] select-none justify-center gap-x-5 text-lg hover:cursor-pointer'>
             <Link
               to={'/'}
@@ -75,7 +75,7 @@ export default function Header() {
               About
             </li>
           </div>
-          <div className='hidden w-full basis-[4/8] items-center justify-end gap-x-4 sm:flex'>
+          <div className='hidden w-full basis-[4/8] items-center justify-end gap-x-4 md:flex'>
             <div className='relative w-[255px]'>
               <input
                 type='text'
@@ -141,7 +141,7 @@ export default function Header() {
               </Link>
             )}
           </div>
-          <div className='flex justify-end sm:hidden'>
+          <div className='flex justify-end md:hidden'>
             <button className='px-2' onClick={() => setMenuMobile(true)}>
               <FontAwesomeIcon icon={faBars} className='text-neutral-500' />
             </button>

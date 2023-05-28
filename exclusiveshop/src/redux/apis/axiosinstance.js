@@ -3,8 +3,7 @@ import axios from 'axios'
 export const axiosInstance = () => {
   const newInstance = axios.create({
     baseURL: 'https://exclusiveshop-be.vercel.app/v1/',
-    timeout: 10000,
-    withCredentials: true
+    timeout: 10000
   })
 
   newInstance.interceptors.request.use(
@@ -36,12 +35,12 @@ export const axiosInstance = () => {
 
 const refreshToken = async () => {
   try {
-    const res = await axiosInstance().post('auth/refresh')
+    const refresh_token = localStorage.getItem('refresh_token')
+    const res = await axiosInstance().post('auth/refresh', { refreshToken: refresh_token })
     const { accessToken } = res
     localStorage.setItem('access_token', accessToken)
   } catch (error) {
     localStorage.clear()
-    document.cookie = 'refreshToken' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
     throw error.response
   }
 }

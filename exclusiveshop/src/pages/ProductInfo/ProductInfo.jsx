@@ -19,6 +19,7 @@ export default function ProductInfo() {
   const { state } = useLocation()
   const dispatch = useDispatch()
   const product = useSelector((state) => state.productStore?.productInfo)
+  const user = useSelector((state) => state.userStore?.user)
 
   const handleChangeCurrImg = (index) => () => {
     setCurrentImg(index)
@@ -39,7 +40,7 @@ export default function ProductInfo() {
       color,
       size
     }
-    dispatch(addProdToCart(product))
+    user && dispatch(addProdToCart(product))
   }
 
   useEffect(() => {
@@ -158,9 +159,9 @@ export default function ProductInfo() {
                 >
                   Buy Now
                 </button>
-                <button>
+                {/* <button>
                   <FontAwesomeIcon icon={faHeart} className='text-lg' />{' '}
-                </button>
+                </button> */}
               </div>
               <div>
                 <div className='flex min-w-[320px] max-w-[400px] items-center gap-x-3 border-[1px] p-2'>
@@ -181,7 +182,7 @@ export default function ProductInfo() {
             </div>
           </div>
         ) : (
-          <div className='text-center'>Product not found</div>
+          <div className='text-center'>Product is loading or not found</div>
         )}
       </Container>
     </section>
